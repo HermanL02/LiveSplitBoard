@@ -14,7 +14,11 @@ export async function GET() {
     }
 
     const data = await response.json();
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'public, max-age=1800, s-maxage=1800',
+      },
+    });
   } catch (error) {
     console.error('Splitwise API Error:', error);
     return NextResponse.json(
