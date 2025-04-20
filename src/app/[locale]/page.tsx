@@ -28,8 +28,17 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/splitwise');
+        const response = await fetch('/api/splitwise/groups/info');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
+        console.warn(data);
+        if (!data.groups || !Array.isArray(data.groups)) {
+          throw new Error('Invalid data format received from API');
+        }
+
         setGroups(data.groups);
         const firstGroup = data.groups.find((group: Group) => group.id !== 0);
         if (firstGroup) {
@@ -37,13 +46,19 @@ export default function Home() {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
-        setError('Failed to fetch data');
+        setError(error instanceof Error ? error.message : 'Failed to fetch data');
+        setGroups([]);
+        setSelectedGroup(null);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchData();
+
+    const intervalId = setInterval(fetchData, 30 * 60 * 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   if (isLoading) {
