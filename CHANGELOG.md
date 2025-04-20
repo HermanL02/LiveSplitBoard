@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/HermanL02/LiveSplitBoard/compare/v1.0.1...v1.1.0) (2025-04-20)
+
+
+### Bug Fixes
+
+* wrong name when same amount ([5b681be](https://github.com/HermanL02/LiveSplitBoard/commit/5b681be36106b36e185b246d0599f34fb5b1f677))
+
+
+### Features
+
+* update to use daisy UI and refactor to make components in an individual page ([d135bf3](https://github.com/HermanL02/LiveSplitBoard/commit/d135bf30bb531adec9f42df8f51ff944daa805ac))
+
 ## [1.0.1](https://github.com/HermanL02/LiveSplitBoard/compare/v1.0.0...v1.0.1) (2025-04-20)
 
 
