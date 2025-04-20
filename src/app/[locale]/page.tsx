@@ -28,7 +28,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/splitwise');
+        const response = await fetch('/api/splitwise/groups/info');
         const data = await response.json();
         setGroups(data.groups);
         const firstGroup = data.groups.find((group: Group) => group.id !== 0);
@@ -44,6 +44,10 @@ export default function Home() {
     };
 
     fetchData();
+
+    const intervalId = setInterval(fetchData, 30 * 60 * 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   if (isLoading) {
