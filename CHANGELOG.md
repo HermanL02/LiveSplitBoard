@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/HermanL02/LiveSplitBoard/compare/v1.0.0...v1.0.1) (2025-04-20)
+
+
+### Bug Fixes
+
+* remove unimportant files ([8cbce4b](https://github.com/HermanL02/LiveSplitBoard/commit/8cbce4b61fe83c3d166540644e6a9d03fd33f46a))
+
 # 1.0.0 (2025-04-19)
 
 
