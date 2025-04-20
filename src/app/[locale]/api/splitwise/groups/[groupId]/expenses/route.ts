@@ -1,3 +1,4 @@
+import sendMessage from '@/lib/discord/discord';
 import { initializeMongoDB } from '@/lib/mongodb/init';
 import Expense from '@/models/Expense';
 import { NextResponse } from 'next/server';
@@ -66,6 +67,6 @@ async function updateExpenses(groupId: number) {
     await newExpense.save();
   }
   // send message to discord
-  // console.log(messages);
-  // await sendMessage(messages.join('\n'));
+  console.warn(messages);
+  await sendMessage(messages.join('\n'));
 }
