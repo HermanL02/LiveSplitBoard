@@ -1,5 +1,6 @@
 import sendMessage from '@/lib/discord/discord';
 import { initializeMongoDB } from '@/lib/mongodb/init';
+import { logger } from '@/libs/Logger';
 import Expense from '@/models/Expense';
 import { NextResponse } from 'next/server';
 
@@ -20,7 +21,7 @@ export async function GET(
       },
     });
   } catch (error) {
-    console.error('Splitwise API Error:', error);
+    logger.error('Splitwise API Error:', error);
     return NextResponse.json(
       { error: 'Get Splitwise Expenses Error' },
       { status: 500 },
@@ -61,12 +62,22 @@ async function updateExpenses(groupId: number) {
       continue;
     }
     // if not exists, add to messages
-    messages.push(turnExpenseIntoMessage(expense));
+    messages.push(await turnExpenseIntoMessage(expense));
     // create new expense
     const newExpense = new Expense(expense);
     await newExpense.save();
   }
+
   // send message to discord
-  console.warn(messages);
-  await sendMessage(messages.join('\n'));
+  if (messages.length > 0) {
+    try {
+      const messageContent = messages.join('\n');
+      logger.info('Sending Discord message:', { messagesCount: messages.length });
+      await sendMessage(messageContent);
+    } catch (error) {
+      logger.error('Discord message send error:', error);
+    }
+  } else {
+    logger.info('No new expenses to send to Discord');
+  }
 }
