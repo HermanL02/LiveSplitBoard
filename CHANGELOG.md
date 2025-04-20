@@ -1,3 +1,22 @@
+# [1.2.0](https://github.com/HermanL02/LiveSplitBoard/compare/v1.1.0...v1.2.0) (2025-04-20)
+
+
+### Bug Fixes
+
+* add error handlings ([1d900fd](https://github.com/HermanL02/LiveSplitBoard/commit/1d900fd32ade1fa04e4095720bf40a69beaa567e))
+* remove unused middleware ([d7242e4](https://github.com/HermanL02/LiveSplitBoard/commit/d7242e4999b9d1a5d3812e64c0fbb112020951ce))
+
+
+### Features
+
+* add mongo db and discord lib ([50ccfdc](https://github.com/HermanL02/LiveSplitBoard/commit/50ccfdc7105965550e6ebe510b240072358cfc71))
+* add route ([1c799e9](https://github.com/HermanL02/LiveSplitBoard/commit/1c799e9bb4ae8dd9b16e157089e4c066fbd7c025))
+* auto refresh every 30 minutes ([64b5523](https://github.com/HermanL02/LiveSplitBoard/commit/64b55238805ba0563232e2799d4b36c98c779667))
+* expense model created ([eb0b7e2](https://github.com/HermanL02/LiveSplitBoard/commit/eb0b7e2043483feeafecd225f17bae7c641c5acb))
+* refactor front end page and add additional table ([4ca0062](https://github.com/HermanL02/LiveSplitBoard/commit/4ca0062567289287561e43211486bba732e42c27))
+* rename backend routes and add a new route ([6a80251](https://github.com/HermanL02/LiveSplitBoard/commit/6a802519e11a6a7b630bac5c690c599b5923c330))
+* updated route and discord send message, created empty service file ([f51f4e0](https://github.com/HermanL02/LiveSplitBoard/commit/f51f4e026c3607819c6575d9203611797f6d0a17))
+
 # [1.1.0](https://github.com/HermanL02/LiveSplitBoard/compare/v1.0.1...v1.1.0) (2025-04-20)
 
 
